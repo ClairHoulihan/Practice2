@@ -142,12 +142,23 @@ o *****
 7. Write a function that prints all the prime numbers between 0 and limit where limit is a
 parameter.
 '''
-
+# This variable is being used as a global to store demerit points (for the speedCheck method)
 demerit = 0
 
+'''
+exercises():
 
+runs a list of other functions that print out even and odd numbers, prime numbers, etc.
+
+'''
 def exercises():
 
+  '''
+  max(x, y):
+
+  returns the maximum value of two varibles
+
+  '''
   def max(x, y):
     if x >= y:
       return x
@@ -156,6 +167,14 @@ def exercises():
 
   print(max(5, 10))
 
+  '''
+  fizz_buzz(num):
+
+  if a number is divisible by 3, return Fizz
+  if a number is divisible by 5, return Buzz
+  if a number is divisible by both, return FizzBuzz
+  else return the original number
+  '''
   def fizz_buzz(num):
     if (num % 3) == 0 and (num % 5) == 0:
       return "FizzBuzz"
@@ -168,6 +187,14 @@ def exercises():
 
   print(fizz_buzz(15))
 
+  '''
+  speedCheck(speed):
+
+  if speed is less than or equal to 70, print Ok
+  if speed is between 70 to 75, print Slow Down
+  if speed is 75 or greater, print demerit point value
+  if demerit value is 12 or greater, print License Suspended
+  '''
   def speedCheck(speed):
 
     global demerit
@@ -176,20 +203,26 @@ def exercises():
       print("License Suspended")
       return
 
-    if speed < 70:
+    if speed <= 70:
       print("Ok")
     elif speed > 70 and speed < 75:
       print("Slow Down")
     else:
       demerit += ((speed - 70) // 5)
       if demerit < 12:
-        print("Points: " + demerit)
+        print("Points: " + str(demerit))
       else:
         print("License Suspended")
 
+  speedCheck(100)
 
-  speedCheck(130)
+  speedCheck(100)
 
+  '''
+  showNumbers(limit):
+
+  prints all of the numbers until the limit and whether they are odd or even
+  '''
   def showNumbers(limit):
     for i in range(0, limit + 1):
       if (i % 2) == 0:
@@ -199,6 +232,11 @@ def exercises():
     
   showNumbers(5)
 
+  '''
+  multi35sum(limit):
+
+  prints all of the multiples of 3 and 5 until limit is reached
+  '''
   def multi35sum(limit):
     sum = 0
     for i in range(0, limit + 1):
@@ -209,12 +247,22 @@ def exercises():
 
   multi35sum(20)
 
+  '''
+  show_stars(row):
+
+  prints rows and uses the row number to print that amount of stars
+  '''
   def show_stars(row):
     for i in range(0, row + 1):
       print("*" * i)
 
   show_stars(5)
 
+  '''
+  primeNumbers(limit):
+
+  prints prime numbers until the limit is reached
+  '''
   def primeNumbers(limit):
 
     for i in range(0, limit + 1):
